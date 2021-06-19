@@ -97,17 +97,25 @@ app.post('/socializeCard',(req,res)=>{
 // Here is where we will explore using forms!
 
 
-
+function seasonRank(a, b) {
+  if (a.season<b.season) return -1;
+  if (a.season>b.season) return 1;
+  return 0;
+}
 // this example shows how to get the current US covid data
 // and send it back to the browser in raw JSON form, see
 // https://covidtracking.com/data/api
 // for all of the kinds of data you can get
-app.get("/c19",
+app.get("/recommendTV",
   async (req,res,next) => {
     try {
-      const url = "https://covidtracking.com/api/v1/us/current.json"
+      const url = "http://api.tvmaze.com/schedule/web?date=2020-05-29&country=US"
       const result = await axios.get(url)
-      res.json(result.data)
+      const showsData = result.data.sort(seasonRank)
+      console.log('showsData.length='+showsData.length)
+      //res.json(covidData.reverse())
+      res.locals.showsData = showsData
+      res.render('tvSeries')
     } catch(error){
       next(error)
     }
@@ -155,11 +163,11 @@ app.get('/classes', (req, res)=>{
 
 app.post('/getClasses',(req,res)=>{
   const classes = req.body.classes
-  classesToTake = classesToTake.concat({'classes:': classes})
+  classesToTake = classesToTake.concat({'class:': classes})
   console.log("Classes To Take")
   console.dir(classesToTake) //debug step
   res.locals.classesToTake = classesToTake
-  res.render('classes')
+  res.render('showClasses')
 })
 // Don't change anything below here ...
 

@@ -1,0 +1,21 @@
+<%- include('bootheader') -%>
+
+<%- include('menubar') -%>
+
+    <div class="jumbotron">
+        <h1>Recommended Ameircan TV shows </h1>
+        <p> In case you get bored, here is a list of American TV shows sorted by season number</p>
+    </div>
+    <% for(let i=0; i<10; i++){
+        n = showsData.length
+        d = showsData[n-1-i]  %>
+        Name: <%= d['name'] %><br>
+        Season number: <%=d['season']%><br>
+        URL: <a href = <%=d['url']%>><%=d['url']%>
+        </a>
+        <hr>
+    <%}%>
+
+
+
+<%- include('bootfooter') -%>

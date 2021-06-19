@@ -5,11 +5,17 @@
         <p>You can list all of the classes you are interested in below</p>
         <p> If you are not sure about a class, ask your academic advisor!</p>
     </div>
-    <form method="post" action="/getClasses">
-        To do:  <input type="text" name="classes">
-        <input type="submit" value="ADD"><br>
-    </form>
     <hr>
+    <ul>
+      <p> <%=classesToTake[0]%></p>
+      <%  classesToTake.map((item) => {%>
+        <li> <%= item['class'] %> </li>
+      <%})%>
+    </ul>
+
+Your list of classes of interest is <%= JSON.stringify(classesToTake) %>
+<br>
+<a href = "/classes">Go back to add more classes </a>
 
 
 
