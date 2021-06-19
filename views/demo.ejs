@@ -1,0 +1,157 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+
+
+
+
+
+<div class=" row jumbotron">
+  <div class = "col">
+    <h1>Demo page for Brandeis!</h1>
+    <p>Here you will find some information you need to start your Brandeis Journey!</p>
+    </div>
+  <div class = "col">
+    <img width = "200" src= "/images/logo.jpg"
+  </div>
+
+</div>
+<br>
+
+<hr>
+<p> First, let's talk about a few offices that you will visit </p>
+<p><a href = "https://www.brandeis.edu/publicsafety/">PUBLIC SAFETY AND CAMPUS POLICE </a>
+  is the most important office to note!!<p>
+<div class = "row">
+  <div class = "col bg-warning">
+    <h2>Campus Living</h2>
+    <li> Department of Community Living(DCL)
+      <a href = "https://www.brandeis.edu/dcl/">DCL website</a>
+    </li>
+    <li>Brandeis Facilities
+      <a href = "https://www.brandeis.edu/facilities/"> Facilities website</a>
+    </li>
+
+    </div>
+    <div class = "col">
+      <h2>New students check in</h2>
+      <li>Campus Card Office
+        <a href = "https://www.brandeis.edu/university-services/campus-card/index.html">
+          card office website</a>
+      </li>
+      <li>International Students and Scholars Office
+        <a href = "https://www.brandeis.edu/isso/">
+          ISSO website</a>
+      </li>
+    </div>
+    <div class = "col bg-warning">
+      <h2> Academics</h2>
+      <li>Sage
+        <a href = "https://www.brandeis.edu/sage/">Sage website</a>
+      </li>
+      <li>Latte
+        <a href = "https://www.brandeis.edu/its/services/software-business-systems/latte/index.html">
+          Latte website</a>
+      </li>
+      <li> WorkDay student
+        <a href = "https://www.brandeis.edu/workday/">Workday website</a>
+      </li>
+    </div>
+
+</div>
+<hr>
+
+<h2>Table of Contact in Need </h2>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Emergency</th>
+      <th>Academic Plans</th>
+      <th>General Question</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Public Safety(on campus)</td>
+      <td>Your Academic Advisor</td>
+      <td>Your Orientation Leader</td>
+    </tr>
+    <tr>
+      <td>Call 911(off campus)</td>
+      <td>Specific Department Undergraduate Representitive</td>
+      <td>Your CA of the floor</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+<h2>Places you can get food!</h2>
+<ol>
+     <li>Sherman Dinning Hall<a href="https://brandeis.sodexomyway.com/dining-near-me/sherman-dining"> Website</a></li>
+     <li>Upper Usdan<a href="https://www.brandeis.edu/student-activities/facilities/usdan/index.html"> Website</a></li>
+     <li>Brandeis Cstore<a href="https://brandeis.sodexomyway.com/dining-near-me/hoot-market-cstore"> Website</a></li>
+
+</ol>
+<hr>
+<h1>
+  Student Information Form
+</h1>
+<p>Let's get to know you!</p>
+
+<form method="post" action="/showformdata" class="bg-success text-white">
+Enter your name:
+<input type="text"
+     name="fullname"
+     placeholder="your full name"><br>
+When is your birthday?
+<input type="date"
+     name="birthday"><br>
+What is your potential major?
+<input type="text"
+     name="Potential Major"
+     placeholder = "Enter here"> <br>
+
+What are your pronouns? And what gender do you identify with?
+<select name="Pronouns">
+<option>she/her/hers</option>
+<option>he/him/his</option>
+<option>they/them</option>
+<option>other<option>
+</select>
+
+<select name="Gender Identification">
+<option>Female</option>
+<option>Male</option>
+<option>Transgender Female</option>
+<option>Transgender Male</option>
+<option>other</option>
+</select>
+<br>
+Tell us about 3 fun facts about yourself:
+<textarea name="bio" rows="10" cols="40" placeholder = "Fun facts here!"></textarea>
+<br>
+<br>
+<br>
+Are you an international student?<br>
+yes <input type="radio" name="International student" value="yes"><br>
+no  <input type="radio" name="International student" value="no"><br>
+don't want to say
+  <input type="radio" name="International student" value="maybe"><br>
+<br>
+<br>
+What games/ice breaker you are interested in playing?<br>
+2 Truth 1 Lie <input type="checkbox" name="game interest" value="2 Truth 1 Lie"><br>
+Unique and Shared  <input type="checkbox" name="game interest" value="Unique and Shared"><br>
+Group Map <input type="checkbox" name="game interest" value="Group Map"><br>
+Other(please specify)
+      <input type="text" name="game interest" placeholder = "Enter here"><br>
+<hr>
+
+<input type="submit" value="Submit Your Info!">
+</form>
+
+<hr>
+
+
+
+
+<%- include('bootfooter') -%>

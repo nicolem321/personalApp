@@ -1,0 +1,63 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+    <h1>
+      Form demo
+    </h1>
+    <p>Let's get to know you!</p>
+
+<form method="post" action="/showformdata" class="bg-success text-white">
+  Enter your name:
+  <input type="text"
+         name="fullname"
+         placeholder="your full name"><br>
+  When is your birthday?
+  <input type="date"
+         name="birthday"><br>
+  What is your potential major?
+  <input type="text"
+         name="Potential Major"
+         placeholder = "Enter here"> <br>
+
+  What are your pronouns? And what gender do you identify with?
+  <select name="Pronouns">
+    <option>she/her/hers</option>
+    <option>he/him/his</option>
+    <option>they/them</option>
+    <option>other<option>
+  </select>
+
+  <select name="Gender Identification">
+    <option>Female</option>
+    <option>Male</option>
+    <option>Transgender Female</option>
+    <option>Transgender Male</option>
+    <option>other</option>
+  </select>
+  <br>
+  Tell us about 3 fun facts about yourself:
+  <textarea name="bio" rows="10" cols="40" placeholder = "Fun facts here!"></textarea>
+  <br>
+  <br>
+  <br>
+  Are you an international student?<br>
+  yes <input type="radio" name="International student" value="yes"><br>
+  no  <input type="radio" name="International student" value="no"><br>
+  don't want to say
+      <input type="radio" name="International student" value="maybe"><br>
+<br>
+<br>
+ What games/ice breaker you are interested in playing?<br>
+  2 Truth 1 Lie <input type="checkbox" name="game interest" value="2 Truth 1 Lie"><br>
+  Unique and Shared  <input type="checkbox" name="game interest" value="Unique and Shared"><br>
+  Group Map <input type="checkbox" name="game interest" value="Group Map"><br>
+  Other(please specify)
+          <input type="text" name="game interest" placeholder = "Enter here"><br>
+  <hr>
+
+  <input type="submit" value="Submit Your Info!">
+</form>
+
+<hr>
+
+
+<%- include('bootfooter') -%>

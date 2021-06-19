@@ -1,0 +1,18 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+    <div class="jumbotron">
+        <h1>Let's make some new friends!</h1>
+        <p>Here is a place that asks for your information and generate a
+        personal socialize card for you with your personal information!</p>
+    </div>
+    <br>
+    <p>Please enter the following information</p>
+    <form method = "post" action = "/socializeCard">
+      What is your full name?
+      <input type = "text" size = 20 name = "fullname"> <br><br>
+      What is your nick name?
+      <input type = "text" size = 20 name = "nickName">
+
+
+
+<%- include('bootfooter') -%>
