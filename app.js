@@ -48,7 +48,7 @@ app.use(function(req, res, next) {
 });
 
 // here we start handling routes
-//main page 
+//main page
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -75,6 +75,23 @@ app.get("/dataDemo", (request,response) => {
 
 app.post("/showformdata", (request,response) => {
   response.json(request.body)
+})
+
+app.get('/socialize', (req,res)=>{
+  res.render('socialize')
+})
+
+app.post('/socializeCard',(req,res)=>{
+  const age = req.body.age
+  const ageInDays = age*365
+  res.locals.ageInDays = ageInDays
+  res.locals.age = req.body.age
+  res.locals.fullName = req.body.fullName
+  res.locals.nickName = req.body.nickName
+  res.locals.fact = req.body.fact
+  res.locals.values = req.body.values
+  res.render('socializeCard')
+
 })
 
 // Here is where we will explore using forms!
@@ -109,7 +126,41 @@ app.get("/omelet",
       next(error)
     }
 })
+app.get('/learnCooking', (req,res) => {
+  res.render('learnCooking')
+})
 
+app.post("/getRecipes",
+  async (req,res,next) => {
+    try {
+      const food = req.body.food
+      const url = "http://www.recipepuppy.com/api/?q="+food+"&p=1"
+      const result = await axios.get(url)
+      console.dir(result.data)
+      console.log('results')
+      console.dir(result.data.results)
+      res.locals.results = result.data.results
+      //res.json(result.data)
+      res.render('showRecipes')
+    } catch(error){
+      next(error)
+    }
+})
+let classesToTake = []
+
+app.get('/classes', (req, res)=>{
+  res.locals.classes = req.body.classes
+  res.render('classes')
+})
+
+app.post('/getClasses',(req,res)=>{
+  const classes = req.body.classes
+  classesToTake = classesToTake.concat({'classes:': classes})
+  console.log("Classes To Take")
+  console.dir(classesToTake) //debug step
+  res.locals.classesToTake = classesToTake
+  res.render('classes')
+})
 // Don't change anything below here ...
 
 // here we catch 404 errors and forward to error handler

@@ -7,11 +7,37 @@
     </div>
     <br>
     <p>Please enter the following information</p>
+    <div class = "row">
+      <div class = "col bg-info">
     <form method = "post" action = "/socializeCard">
       What is your full name?
-      <input type = "text" size = 20 name = "fullname"> <br><br>
+      <input type = "text" size = 20 name = "fullName"> <br><br>
       What is your nick name?
-      <input type = "text" size = 20 name = "nickName">
+      <input type = "text" size = 20 name = "nickName"><br><br>
+      How old are you?
+      <input type = "number" size = 10 name = "age"><br><br>
+      What do you think is the most important thing in a friendship?
+      <select name="values">
+        <option>Honesty</option>
+        <option>Shared hobbies</option>
+        <option>Support</option>
+        <option>Trust<option>
+      </select><br><br>
+      Fact fact:<br>
+      Tell us a fun fact about your self!<br>
+      <textarea name="fact" rows="5" cols="20">
+      </textarea>
+      <br>
+      <input type = "submit" value = "Get your socialize card now!"><br>
+
+    </form>
+    </div>
+  <div class = "col">
+    <img src = "/images/brandeis.jpg" size = 100%>
+  </div>
+  </div>
+
+
 
 
 
