@@ -163,7 +163,7 @@ app.get('/classes', (req, res)=>{
 
 app.post('/getClasses',(req,res)=>{
   const classes = req.body.classes
-  classesToTake = classesToTake.concat({'class:': classes})
+  classesToTake = classesToTake.concat({'class': classes})
   console.log("Classes To Take")
   console.dir(classesToTake) //debug step
   res.locals.classesToTake = classesToTake
