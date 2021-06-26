@@ -3,15 +3,42 @@
 */
 
 // First we load in all of the packages we need for the server...
-const createError = require("http-errors");
-const express = require("express");
-const path = require("path");
-const cookieParser = require("cookie-parser");
 const session = require("express-session");
 //const bodyParser = require("body-parser");
 const axios = require("axios");
 var debug = require("debug")("personalapp:server");
 
+
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const cors = require('cors');
+
+//const auth = require('./config/auth.js');
+
+
+
+const mongoose = require( 'mongoose' );
+//mongoose.connect( `mongodb+srv://${auth.atlasAuth.username}:${auth.atlasAuth.password}@cluster0-yjamu.mongodb.net/authdemo?retryWrites=true&w=majority`);
+mongoose.connect( 'mongodb://localhost/authDemo');
+//const mongoDB_URI = process.env.MONGODB_URI
+//mongoose.connect(mongoDB_URI)
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("we are connected!!!")
+});
+
+const User = require('./models/User');
+
+//const authRouter = require('./routes/authentication');
+//const isLoggedIn = authRouter.isLoggedIn
+const loggingRouter = require('./routes/logging');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 // Now we create the server
 const app = express();
 
@@ -19,23 +46,33 @@ const app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+app.use(cors());
+
+app.use(logger('dev'));
 // Here we process the requests so they are easy to handle
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+
 // Here we specify that static files will be in the public folder
 app.use(express.static(path.join(__dirname, "public")));
 
+//app.use(authRouter)
+//app.use(loggingRouter);
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 // Here we enable session handling ..
 app.use(
   session({
     secret: "zzbbya789fds89snana789sdfa",
     resave: false,
     saveUninitialized: false
-  })
-);
-
+}));
+const myLogger = (req,res,next) => {
+  console.log('inside a route!')
+  next()
+}
 //app.use(bodyParser.urlencoded({ extended: false }));
 
 // This is an example of middleware
@@ -169,6 +206,56 @@ app.post('/getClasses',(req,res)=>{
   res.locals.classesToTake = classesToTake
   res.render('showClasses')
 })
+
+app.get("/planner", async (req,res,next) => {
+  res.render('planner')
+})
+
+const PlannerItem = require('./models/Planner')
+
+app.post("/planners",
+  //isLoggedIn,
+  async (req,res,next) => {
+    const month = req.body.month
+    const week = req.body.week
+    const createdAt = new Date
+    const item = req.body.item
+    const time = req.body.time
+    const startTime = req.body.startTime
+    const endTime = req.body.endTime
+    const plannerdoc = new PlannerItem({
+      //userId:req.user._id,
+      month: month,
+      week: week,
+      createdAt: createdAt,
+      item: item,
+      time: time,
+      startTime: startTime,
+      endTime: endTime
+    })
+    const result = await plannerdoc.save()
+    console.log('result=')
+    console.dir(result)
+    res.locals.plannerItems = await PlannerItem.find({})
+    res.render('planners')
+})
+
+app.get('/planners', //isLoggedIn,
+  async (req,res,next) => {
+    res.locals.plannerItems = await PlannerItem.find({})
+    console.log('planners='+JSON.stringify(res.locals.plannerItems.length))
+    res.render('planners')
+  })
+
+app.get('/plannerremove/:planner_id', //isLoggedIn,
+    async (req,res,next) => {
+
+      const planner_id = req.params.planner_id
+      console.log(`id=${planner_id}`)
+      await PlannerItem.deleteOne({_id:planner_id})
+      res.redirect('/planners')
+
+    })
 // Don't change anything below here ...
 
 // here we catch 404 errors and forward to error handler

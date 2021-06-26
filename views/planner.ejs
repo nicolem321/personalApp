@@ -1,0 +1,207 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+    <head>
+    <style>
+    #background {
+      background-image: url("images/42.jpg");
+      background-position: right bottom
+      background-repeat: repeat;
+      padding: 15px;
+    }
+    #rcorners {
+      border-radius: 25px;
+      border: 2px solid #73AD21;
+      padding: 20px;
+      width: 800px;
+      height: 15px;
+    }
+    input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    select {
+      width: 100%;
+      padding: 16px 20px;
+      border: none;
+      border-radius: 4px;
+      background-color: #f1f1f1;
+    }
+    p {outline-color:pink;}
+    p.double {outline-style: double;}
+    </style>
+    </head>
+    <body>
+    <div class="jumbotron">
+      <h1 style="font-size:3vw;"> Personal Monthly Planner </h1>
+      <p class="double"> This is an online planner to help planning out your month</p>
+        <form method = "post" action = "/planners">
+          Month:
+          <select name="month">
+            <option>Jan</option><option>Feb</option><option>Mar</option>
+            <option>Apr</option><option>May</option><option>June</option>
+            <option>July</option><option>Aug</option><option>Sept</option>
+            <option>Oct</option><option>Nov</option><option>Dec</option>
+          </select>
+          Week:
+          <select id = "week" name = "week">
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+          </select>
+          <hr>
+          <div class = "row" id="background">
+            <div class = "col">
+              <form  method = "post" action = "/planners">
+                <p style="font-size:2vw;"> Select WorkDay</p>
+                <select name = "workDay">
+                  <option>Monday</option>
+                  <option>Tuesday</option>
+                  <option>Wednesday</option>
+                  <option>Thursday</option>
+                  <option>Friday</option>
+                </select>
+                <hr>
+                <p style="font-size:1vw;">Task:</p>
+                <input type="text"
+                       name="item"
+                       placeholder="Enter task here"
+                       id = "rcorners"><br><br>
+                <p style="font-size:1vw;">Amount of time needed: </p>
+                <input type = "number"
+                       name = "time"
+                       placeholder="Enter time here"
+                       id = "rcorners">mins<br><br>
+                 <p style="font-size:1vw;">Start time:</p>
+                 <input type="text"
+                        name="startTime"
+                        placeholder="Start time"
+                        id = "rcorners"><br><br>
+                  <p style="font-size:1vw;">Finished time:</p>
+                  <input type="text"
+                         name="endTime"
+                         placeholder="End time"
+                         id = "rcorners"><br><br>
+                  <input type="submit" value="Click here if finished">
+
+              </form>
+            </div>
+
+            <!-- <div class = "col">
+              <h3 style="color:red">Tuesday</h3>
+              <form  method = "post" action = "/planners">
+                <p style="font-size:1vw;">Task:</p>
+                <input type="text"
+                       name="item"
+                       placeholder="Enter task here"
+                       id = "rcorners"><br><br>
+                <p style="font-size:1vw;">Amount of time needed: </p>
+                <input type = "number"
+                       name = "time"
+                       placeholder="Enter time here"
+                       id = "rcorners">mins<br><br>
+                 <p style="font-size:1vw;">Start time:</p>
+                 <input type="text"
+                        name="startTime"
+                        placeholder="Start time"
+                        id = "rcorners"><br><br>
+                  <p style="font-size:1vw;">Finished time:</p>
+                  <input type="text"
+                         name="endTime"
+                         placeholder="End time"
+                         id = "rcorners"><br><br>
+                  <input type="submit" value="Click here if finished">
+            </div>
+            <div class = "col">
+              <h3 style="color:red">Wednesday</h3>
+              <form  method = "post" action = "/planners">
+                <p style="font-size:1vw;">Task:</p>
+                <input type="text"
+                       name="item"
+                       placeholder="Enter task here"
+                       id = "rcorners"><br><br>
+                <p style="font-size:1vw;">Amount of time needed: </p>
+                <input type = "number"
+                       name = "time"
+                       placeholder="Enter time here"
+                       id = "rcorners">mins<br><br>
+                 <p style="font-size:1vw;">Start time:</p>
+                 <input type="text"
+                        name="startTime"
+                        placeholder="Start time"
+                        id = "rcorners"><br><br>
+                  <p style="font-size:1vw;">Finished time:</p>
+                  <input type="text"
+                         name="endTime"
+                         placeholder="End time"
+                         id = "rcorners"><br><br>
+                  <input type="submit" value="Click here if finished">
+            </div>
+            <div class = "col">
+              <h3 style="color:red">Thursday</h3>
+              <form  method = "post" action = "/planners">
+                <p style="font-size:1vw;">Task:</p>
+                <input type="text"
+                       name="item"
+                       placeholder="Enter task here"
+                       id = "rcorners"><br><br>
+                <p style="font-size:1vw;">Amount of time needed: </p>
+                <input type = "number"
+                       name = "time"
+                       placeholder="Enter time here"
+                       id = "rcorners">mins<br><br>
+                 <p style="font-size:1vw;">Start time:</p>
+                 <input type="text"
+                        name="startTime"
+                        placeholder="Start time"
+                        id = "rcorners"><br><br>
+                  <p style="font-size:1vw;">Finished time:</p>
+                  <input type="text"
+                         name="endTime"
+                         placeholder="End time"
+                         id = "rcorners"><br><br>
+                  <input type="submit" value="Click here if finished">
+            </div>
+            <div class = "col">
+              <h3 style="color:red">Friday</h3>
+              <form  method = "post" action = "/planners">
+                <p style="font-size:1vw;">Task:</p>
+                <input type="text"
+                       name="item"
+                       placeholder="Enter task here"
+                       id = "rcorners"><br><br>
+                <p style="font-size:1vw;">Amount of time needed: </p>
+                <input type = "number"
+                       name = "time"
+                       placeholder="Enter time here"
+                       id = "rcorners">mins<br><br>
+                 <p style="font-size:1vw;">Start time:</p>
+                 <input type="text"
+                        name="startTime"
+                        placeholder="Start time"
+                        id = "rcorners"><br><br>
+                  <p style="font-size:1vw;">Finished time:</p>
+                  <input type="text"
+                         name="endTime"
+                         placeholder="End time"
+                         id = "rcorners"><br><br>
+                  <input type="submit" value="Click here if finished">
+            </div>
+          </div>
+        </form> -->
+
+    </div>
+    </body>
+
+
+
+
+
+<%- include('bootfooter') -%>
