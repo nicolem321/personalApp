@@ -34,8 +34,8 @@ db.once('open', function() {
 
 const User = require('./models/User');
 
-//const authRouter = require('./routes/authentication');
-//const isLoggedIn = authRouter.isLoggedIn
+const authRouter = require('./routes/authentication');
+const isLoggedIn = authRouter.isLoggedIn
 const loggingRouter = require('./routes/logging');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -53,7 +53,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
+app.use(authRouter);
 
 // Here we specify that static files will be in the public folder
 app.use(express.static(path.join(__dirname, "public")));
@@ -63,12 +63,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // Here we enable session handling ..
-app.use(
-  session({
-    secret: "zzbbya789fds89snana789sdfa",
-    resave: false,
-    saveUninitialized: false
-}));
+
+
 const myLogger = (req,res,next) => {
   console.log('inside a route!')
   next()
@@ -139,6 +135,8 @@ function seasonRank(a, b) {
   if (a.season>b.season) return 1;
   return 0;
 }
+
+
 // this example shows how to get the current US covid data
 // and send it back to the browser in raw JSON form, see
 // https://covidtracking.com/data/api
@@ -231,8 +229,9 @@ app.post("/planners",
       item: item,
       time: time,
       startTime: startTime,
-      endTime: endTime
+      endTime: endTime,
     })
+    console.log("after initilizition")
     const result = await plannerdoc.save()
     console.log('result=')
     console.dir(result)

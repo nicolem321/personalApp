@@ -12,7 +12,7 @@
       border-radius: 25px;
       border: 2px solid #73AD21;
       padding: 20px;
-      width: 800px;
+      width: 200px;
       height: 15px;
     }
     input[type=submit] {
@@ -60,15 +60,11 @@
           <div class = "row" id="background">
             <div class = "col">
               <form  method = "post" action = "/planners">
-                <p style="font-size:2vw;"> Select WorkDay</p>
-                <select name = "workDay">
-                  <option>Monday</option>
-                  <option>Tuesday</option>
-                  <option>Wednesday</option>
-                  <option>Thursday</option>
-                  <option>Friday</option>
-                </select>
-                <hr>
+              <select id = "day" name = "day">
+                  <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+                  <option>Thursday</option><option>Friday</option>
+              </select>
+
                 <p style="font-size:1vw;">Task:</p>
                 <input type="text"
                        name="item"
@@ -97,6 +93,7 @@
             <!-- <div class = "col">
               <h3 style="color:red">Tuesday</h3>
               <form  method = "post" action = "/planners">
+                <input type="hidden" id="day" name="day" value="Tuesday">
                 <p style="font-size:1vw;">Task:</p>
                 <input type="text"
                        name="item"
@@ -122,6 +119,7 @@
             <div class = "col">
               <h3 style="color:red">Wednesday</h3>
               <form  method = "post" action = "/planners">
+                <input type="hidden" id="day" name="day" value="Wednesday">
                 <p style="font-size:1vw;">Task:</p>
                 <input type="text"
                        name="item"
@@ -147,6 +145,7 @@
             <div class = "col">
               <h3 style="color:red">Thursday</h3>
               <form  method = "post" action = "/planners">
+                <input type="hidden" id="day" name="day" value="Thursday">
                 <p style="font-size:1vw;">Task:</p>
                 <input type="text"
                        name="item"
@@ -172,6 +171,7 @@
             <div class = "col">
               <h3 style="color:red">Friday</h3>
               <form  method = "post" action = "/planners">
+                <input type="hidden" id="day" name="day" value="Friday">
                 <p style="font-size:1vw;">Task:</p>
                 <input type="text"
                        name="item"
@@ -194,8 +194,8 @@
                          id = "rcorners"><br><br>
                   <input type="submit" value="Click here if finished">
             </div>
-          </div>
-        </form> -->
+          </div> -->
+        </form>
 
     </div>
     </body>

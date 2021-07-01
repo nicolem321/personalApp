@@ -7,7 +7,15 @@
     <a href="http://www.brandeis.edu">Brandeis website</a>
     <br>
     <br>
-    <img width = "550" src = "/images/brandeis.jpg"
+    <img width = "550" src = "/images/brandeis.jpg">
+    <br>
+    <hr>
+    <%if (loggedIn){%>
+      Yay, you logged in!
+      <a href = "/logout"> logout</a>
+    <% }else{ %> <a href = "/login">Log in</a>
+    <%}%>
+
 
 
 

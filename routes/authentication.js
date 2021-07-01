@@ -9,7 +9,7 @@ const session = require("express-session")
 const bodyParser = require("body-parser")
 const flash = require('connect-flash')
 const mongoose = require( 'mongoose' );
-const MongoStore = require('connect-mongo')(session)
+const MongoDbStore = require('connect-mongo')
 
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // here we set up authentication with passport
@@ -17,12 +17,16 @@ const passport = require('passport')
 const configPassport = require('../config/passport')
 configPassport(passport)
 
-router.use(session(
-  {secret: 'zzbbyananaresasd4322',
-   resave: false,
-   saveUninitialized: false,
-   cookie:{maxAge:24*60*60*1000}, // allow login for one day...
-   store:new MongoStore({mongooseConnection: mongoose.connection})}))
+router.use(
+    session({
+        secret: '7f8d9s7a89fsdajkfjks',
+        resave: false,
+        saveUninitialized: false,
+        store: MongoDbStore.create({
+            mongoUrl: 'mongodb://localhost/authDemo'
+        })
+    })
+);
 router.use(flash());
 router.use(passport.initialize());
 router.use(passport.session());
