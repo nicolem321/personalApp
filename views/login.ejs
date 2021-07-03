@@ -1,8 +1,25 @@
-
+<%- include('bootheader') -%>
+<html>
+<head>
+<style>
+h1 {
+  text-shadow: 2px 2px 5px green;
+}
+body {
+  background-color: lightblue;
+}
+</style>
+</head>
+<body>
+<br>
     <div class="jumbotron">
-        <h1>Login to the Authentication Demo </h1>
-        <p> You must login to see your profile </p>
+      <h1>Login to the Brandeis orientation app!
         <a class="btn btn-danger" href="/auth/google">
-            <span class="fa fa-google-plus"> Google</span>
+          <span class="fa fa-google-plus"> Google</span>
         </a>
+      </h1>
+      <p style="font-size:20px"> Please login to maximize your user experience and view your planner! </p>
     </div>
+</body>
+<html>
+<%- include('bootfooter') -%>

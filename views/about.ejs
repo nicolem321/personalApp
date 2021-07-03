@@ -1,7 +1,50 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+  text-shadow: 2px 2px red;
+}
+.hero-image {
+  background: url(/images/nicole1.JPG) no-repeat center;
+  background-size: cover;
+  height: 500px;
+  position: relative;
+}
 
-    <div class="jumbotron text-danger">
+.hero-image2 {
+  background: url(/images/nicole2.jpeg) no-repeat center;
+  background-size: cover;
+  height: 500px;
+  position: relative;
+}
+
+.hero-image3 {
+  background: url(/images/nicole3.jpeg) no-repeat center;
+  background-size: cover;
+  height: 500px;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+</style>
+</head>
+<body>
+    <div class="jumbotron">
+      <br><br>
         <h1>Nicole Meng</h1>
         <hr>
     </div>
@@ -10,10 +53,11 @@
 <div class = "row">
   <div class = "col ">
     <h3> Bio and introduction</h3>
-    <p> I am a rising junior at Brandeis University triple majoring in
+    <br>
+    <p style="font-size:15px"> I am a rising junior at Brandeis University triple majoring in
       Computer Science, Applied Math, and Economics.
     </p>
-    <p>I am currently working
+    <p style="font-size:15px">I am currently working
       in a machine learning lab and I am also an international orientation
       leader this year!
     </p>
@@ -29,7 +73,7 @@
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <strong>I was born and raised mostly in Harbin, China!</strong> I grew up in the northeast part of China and my hometown is actually right next to Russia!
       </div>
     </div>
   </div>
@@ -41,7 +85,7 @@
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <strong>Part of my family is from Singapore!</strong> Since my families are in Singapore, I visted and lived in Singapore on and off throughout my life!
       </div>
     </div>
   </div>
@@ -53,7 +97,7 @@
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <strong>I studies abroad in Australia during my high school year!</strong> I studies abroad in Melbourne!
       </div>
     </div>
   </div>
@@ -65,7 +109,7 @@
     </h2>
     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <strong>I came to Brandeis!</strong> I came to the US for college since 2019 and I love it so far
       </div>
     </div>
   </div>
@@ -75,8 +119,34 @@
     <h3>Profile picture</h3>
     <img width = "400" src = "/images/nicolemeng.jpeg">
   </div>
-</div>
+  <hr><br>
+  <h1> My Hobbies</h1>
+  <div class = "row">
+    <div class="hero-image col">
+  <div class="hero-text">
+    <h1 style="font-size:50px">I love sailing</h1>
+    <h3>Ask me about fun beaches around Brandeis!</h3>
+  </div>
+   </div>
+   <div class="hero-image2 col">
+   <div class="hero-text">
+     <h1 style="font-size:50px">I play the guitar</h1>
+     <h3>What is your favoriate instrument?</h3>
+   </div>
+  </div>
+  <div class="hero-image3 col">
+  <div class="hero-text">
+    <h1 style="font-size:50px">I love modeling</h1>
+    <h3>Guess which country and culture I was modeling for?</h3>
+  </div>
+ </div>
+   </div>
 
+
+
+</div>
+</body>
+</html>
  <!--
   also add a list and some links
   to your bio,

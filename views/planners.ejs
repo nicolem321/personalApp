@@ -2,16 +2,16 @@
 <%- include('menubar') -%>
 
   <div class="jumbotron">
-
+<br><br>
   <h1> Planner Items </h1>
   <p style="font-size:1vw;">List of all planner items </p>
-  <hr>
-  <table class="table table-bordered table-striped">
+  <hr><br>
+  <table class="table table-success table-striped">
     <thead>
       <tr>
         <th>Month</th><th>Week</th><th>userId</th>
         <th>Task Name</th><th>Time used</th><th>Start Time</th>
-        <th>End Time</th><th>Data Created</th>
+        <th>End Time</th><th>Data Created</th><th>Delete this item</th>
       </tr>
     </thead>
     <tbody>
@@ -23,7 +23,7 @@
       <td><%= planner.month%></td>
       <td><%= planner.week %></td>
       <td>
-        <a href="/plannerremove/<%= planner._id %>"> X </a>
+
           <%= planner.userId %>
       </td>
       <td><%= planner.item %></td>
@@ -31,15 +31,16 @@
       <td><%= planner.startTime %></td>
       <td><%= planner.endTime %></td>
       <td><%= planner.createdAt %></td>
+      <td><a href="/plannerremove/<%= planner._id %>"> X </a></td>
 
     </tr>
   <%}%>
 </tbody>
-</table>
+</table><br>
+<hr>
   <div class = "col">
     <h2> Go Back to my planner</h2>
-    <a href="/planner"> go back </a>
-    <hr>
+    <a class="btn btn-success" href="/planner" role="button">Go back</a>
   </div>
   </div>
 

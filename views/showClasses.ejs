@@ -1,21 +1,41 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
-    <div class="jumbotron">
+<html>
+<head>
+<title>CSS Website Layout</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+    margin: 0;
+  }
+  .header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+    <div class="jumbotron header">
         <h1>Welcome to your own class list!</h1>
         <p>You can list all of the classes you are interested in below</p>
         <p> If you are not sure about a class, ask your academic advisor!</p>
     </div>
     <hr>
+    <div>
+      <br><br>
     <ul>
       <%  classesToTake.map((item) => {%>
         <li> <%= item['class'] %> </li>
       <%})%>
     </ul>
-
+    </div>
 Your list of classes of interest is <%= JSON.stringify(classesToTake) %>
-<br>
-<a href = "/classes">Go back to add more classes </a>
-
+<br><br>
+<a class="btn btn-info" href="/classes" role="button">Go back to add more classes</a>
+</body>
+</html>
 
 
 

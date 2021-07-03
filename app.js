@@ -212,7 +212,7 @@ app.get("/planner", async (req,res,next) => {
 const PlannerItem = require('./models/Planner')
 
 app.post("/planners",
-  //isLoggedIn,
+  isLoggedIn,
   async (req,res,next) => {
     const month = req.body.month
     const week = req.body.week
@@ -222,7 +222,7 @@ app.post("/planners",
     const startTime = req.body.startTime
     const endTime = req.body.endTime
     const plannerdoc = new PlannerItem({
-      //userId:req.user._id,
+      userId:req.user._id,
       month: month,
       week: week,
       createdAt: createdAt,
@@ -235,18 +235,18 @@ app.post("/planners",
     const result = await plannerdoc.save()
     console.log('result=')
     console.dir(result)
-    res.locals.plannerItems = await PlannerItem.find({})
+    res.locals.plannerItems = await PlannerItem.find({userId:req.user._id})
     res.render('planners')
 })
 
-app.get('/planners', //isLoggedIn,
+app.get('/planners', isLoggedIn,
   async (req,res,next) => {
-    res.locals.plannerItems = await PlannerItem.find({})
+    res.locals.plannerItems = await PlannerItem.find({userId:req.user._id})
     console.log('planners='+JSON.stringify(res.locals.plannerItems.length))
     res.render('planners')
   })
 
-app.get('/plannerremove/:planner_id', //isLoggedIn,
+app.get('/plannerremove/:planner_id', isLoggedIn,
     async (req,res,next) => {
 
       const planner_id = req.params.planner_id

@@ -1,11 +1,32 @@
 <%- include('bootheader') -%>
 
 <%- include('menubar') -%>
-
-    <div class="jumbotron">
+<html>
+<head>
+<title>CSS Website Layout</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  h1 {
+    text-shadow: 2px 2px lightpink;
+  }
+  body {
+    margin: 0;
+  }
+  .header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <br>
+    <div class="jumbotron header">
         <h1>Recommended Ameircan TV shows </h1>
-        <p> In case you get bored, here is a list of American TV shows sorted by season number</p>
+        <p style="font-size:20px"> In case you get bored, here is a list of American TV shows sorted by season number</p>
     </div>
+<br>
     <% for(let i=0; i<10; i++){
         n = showsData.length
         d = showsData[n-1-i]  %>
@@ -15,7 +36,8 @@
         </a>
         <hr>
     <%}%>
-
+</body>
+</html>
 
 
 <%- include('bootfooter') -%>
